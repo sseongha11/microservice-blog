@@ -147,5 +147,5 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 $ minikube start
 '''
 <p align="left">
-    <img src="images/minikube.png" width="324" height="280">
+    <img src="images/minikube.png" width="700" height="280">
 </P>
