@@ -5,7 +5,7 @@ This project aims to set up the mini microservice with **Node JS, React, Docker 
 Microservice architecture, or simply microservices, is a distintive method of developing software systems that tries to focus on building single-function modiels with well-defined interfaces and operatrions. The trend has grown popular in recent years as Enterprises look to become more Agile and move towards a DevOps and continuous testing.
 
 ## Docker
-![Dockers](images/docker.png = 250x250)
+<img src="/images/docker.png" align="center" height="900" width="900" >
 **[Docker](https://www.docker.com/)** is a set of platform as a service (PaaS) products that uses OS-level virtualisation to deliver software in packages called containers. Containers are isolated from one another and bundle their own software, libraries and configuration files; they can communicate with each other through well-defined channels. All containers are run by a single operating system kernel and therefore use fewer resources than virtual machines.
 
 ## Kubernetes
