@@ -35,12 +35,14 @@ touch .dockerignore
 ```
 2. set up **Dockerfile (Case1: client folder [React App])**
 
-| FROM | node:alpine | : Specify base image |
-| WORKDIR | /app | : Set the working directory to '/app' in the container. All following commands will be issued relative to this dir |
-| COPY | package.json ./ | : Copy over only the package.json file |
-| RUN | npm install |: Install all dependencies |
-| COPY | ./ ./ |: Copy over all of the remaining source codes |
-| CMD | ["npm", "start"] |: Set the command to run when the container starts up |
+| Command | Description |
+| --- | --- |
+| FROM node:alpine | Specify base image |
+| WORKDIR /app | Set the working directory to '/app' in the container. All following commands will be issued relative to this dir |
+| COPY package.json ./ | Copy over only the package.json file |
+| RUN npm install | Install all dependencies |
+| COPY ./ ./ | Copy over all of the remaining source codes |
+| CMD ["npm", "start"] | Set the command to run when the container starts up |
 
 ```bash
 FROM node:alpine
