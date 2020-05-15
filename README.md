@@ -22,7 +22,7 @@ Microservice architecture, or simply microservices, is a distintive method of de
 ## Set React
 1. Download the project
 ```sh
-git clone https://github.com/sseongha11/microservice-blog.git blog
+$ git clone https://github.com/sseongha11/microservice-blog.git blog
 ```
 2. move to client folder and check the files
 
@@ -30,8 +30,8 @@ git clone https://github.com/sseongha11/microservice-blog.git blog
 1. Set **Docker**
 
 ```sh
-touch Dockerfile
-touch .dockerignore
+$ touch Dockerfile
+$ touch .dockerignore
 ```
 2. Set **Dockerfiles (Case1: client folder [React App])**
 
@@ -89,37 +89,48 @@ node_modules
 The examples are follows:
 
 ```
-docker build -t sseongha11/posts
-docker run sseongha11/posts
-docker run -it sseongha11/posts sh
+$ docker build -t sseongha11/posts
+$ docker run sseongha11/posts
+$ docker run -it sseongha11/posts sh
 ```
 
 ## Set Kubernetes
+### Kubernetes basics
+
+| Item | Description |
+| --- | --- |
+| Kubernetes Cluster | A collections of nodes + a master to manage them |
+| Node | A virtual machine that will run containers |
+| Pod | More or less a running container. Technically, a pod can run multiple containers |
+| Deployment | Monitors a set of pods, make sure they are running and restarts them if they crash |
+| Service | Provides an easy-to-remember URL to access a running container |
+
+
 ### Kubernetes Setup (Ubuntu 18.04)
 1. Update system
 run the following commands to update all system packages to the latest release:
 ```
-sudo apt-get update
-sudo apt-get install apt-transport-https
-sudo apt-get upgrade
+$ sudo apt-get update
+$ sudo apt-get install apt-transport-https
+$ sudo apt-get upgrade
 ```
 2. Install kvm2 drivers
 Minikube leverages Docker Machine to manage the Kubernetes VM so that it benefits from the driver plugin architeture of Docker Machine. This requires that the KVM2 driver maintained by minikube team is installed.
 
 ```
 # make sure official dependencies are already installed
-sudo apt install libvirt-clients libvirt-daemon-system qemu-kvm
+$ sudo apt install libvirt-clients libvirt-daemon-system qemu-kvm
 
 # install kvm2 driver
-curl -LO https://storage.googleapis.com/minikube/releases/latest/docker-machine-driver-kvm2 && sudo install docker-machine-driver-kvm2 /usr/local/bin/
+$ curl -LO https://storage.googleapis.com/minikube/releases/latest/docker-machine-driver-kvm2 && sudo install docker-machine-driver-kvm2 /usr/local/bin/
 ```
 
-3. Download minikube
+3. Download **[minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)**
 Download the minikube binary.
 ```
-wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-chmod +x minikube-linux-amd64
-sudo mv minikube-linux-amd64 /usr/local/bin/minikube
+$ wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+$ chmod +x minikube-linux-amd64
+$ sudo mv minikube-linux-amd64 /usr/local/bin/minikube
 ```
 confirm version installed
 ```
@@ -131,15 +142,15 @@ commit: 63ab801ac27e5742ae442ce36dff7877dcccb278
 4. Install kubectl on Ubuntu
 We need kubectl which is a command line tool used to deploy and manage applications on Kubernetes:
 ```
-curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+$ curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 ```
 Make the kubectl binary executable
 '''
-chmod +x ./kubectl
+$ chmod +x ./kubectl
 '''
 Move the binary into your PATH
 ```
-sudo mv ./kubectl /usr/local/bin/kubectl
+$ sudo mv ./kubectl /usr/local/bin/kubectl
 ```
 
 5. Start minikube
